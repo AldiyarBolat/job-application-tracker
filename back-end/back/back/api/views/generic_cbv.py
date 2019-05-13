@@ -1,7 +1,6 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.http import Http404
-from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 
 from api.models import UserApplication, Schedule
