@@ -31,9 +31,8 @@ Our platform allows you to get rid of tons of excel pages. Job Application Track
 
 
 ## Prerequisites
-Node.js 10.5.0
-<tr>
-Python 3.6.3
-<tr>
-djangorestframework 3.9.1
-<tr>
+####Node.js 10.5.0
+<br>
+####Python 3.6.3
+<br>
+####djangorestframework 3.9.1
