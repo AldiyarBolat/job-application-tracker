@@ -10,7 +10,7 @@ Our platform allows you to get rid of tons of excel pages. Job Application Track
   <tr>
     <td>Adilkhan</td>
     <td>Kozhakhmetov</td> 
-    <td>github.com/kozhakhmetov</td>
+    <td>https://github.com/kozhakhmetov</td>
   </tr>
   <tr>
     <td>Aldiyar</td>
