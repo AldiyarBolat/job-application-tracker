@@ -28,3 +28,9 @@ Our platform allows you to get rid of tons of excel pages. Job Application Track
     <td>https://github.com/pumalcn</td>
   </tr>
 </table>
+
+
+### Prerequisites
+Node.js 10.5.0
+Python 3.6.3
+djangorestframework 3.9.1
