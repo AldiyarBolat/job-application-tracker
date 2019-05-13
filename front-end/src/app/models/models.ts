@@ -4,9 +4,11 @@ export interface IAuthResponse {
 
 export interface ICompany {
   name: string;
+  id: number;
 }
 
 export interface IPosition {
+  id: number;
   name: string;
   link: string;
   location: string;
@@ -15,6 +17,7 @@ export interface IPosition {
 }
 
 export interface IUserApplication {
+  id: number;
   position: IPosition;
   status: IStatus;
   comment: string;
@@ -23,10 +26,12 @@ export interface IUserApplication {
 }
 
 export interface IStatus {
+  id: number;
   name: string;
 }
 
 export interface ISchedule {
+  id: number;
   event_type: string;
   date: string;
 }

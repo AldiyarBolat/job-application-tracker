@@ -5,4 +5,15 @@
   Add company:
   <input type="text" [(ngModel)]="companyName" />
   <button (click)="createCompany()">Add Company</button>
+  Choose company:
+  <div>
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let company of companies">
+          {{company.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
