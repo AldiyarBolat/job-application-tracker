@@ -1,1 +1,2 @@
-Platform that allows better control of banks. Our planform allows ordinary people make bank transactions and banks control this transactions; Control of hole credit system inside one platform.# world-bank
+Have you ever tryed to monitor youre job or internship applications? Ofcource! Our platform allows you to get rid of tons of exel pages.
+Job Application Tracker will orgonize all your applications and shedule all reletated events. 
