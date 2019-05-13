@@ -1,7 +1,9 @@
+<h1>Project description</h1>
+
 Our platform allows you to get rid of tons of excel pages. Job Application Tracker will organize all your applications and schedule all related events. 
 
 
-<h1><Team members:</h1>
+<h2>Team members:</h2>
 
 <table style="width:100%">
   <tr>
