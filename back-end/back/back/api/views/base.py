@@ -9,7 +9,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
-from api.models import User, Company, Status
+from api.models import User, Company, Status, Position
 from api.serializers import StatusSerializer, PositionSerializer, UserSerializer, CompanySerializer
 
 
@@ -33,14 +33,18 @@ def status(request):
 #    return Response({}, status=status.HTTP_204_NO_CONTENT)
 
 
-@api_view(['POST'])
+@api_view(['POST', 'GET'])
 def position(request):
     if request.method == 'POST':
         serializer = PositionSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(created_by=request.user, company=request.company)
+            serializer.save(created_by=request.user)
             return Response(serializer.data)
         return Response(serializer.errors)
+    if request.method == 'GET':
+        positions = Position.objects.all()
+        serializer = PositionSerializer(positions, many=True)
+        return Response(serializer.data)
 
 
 class CompanyView(APIView):

@@ -44,13 +44,13 @@ class CompanySerializer(serializers.Serializer):
 
 
 class PositionSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(required=True)
-    link = serializers.CharField(required=True)
-    location = serializers.CharField(required=True)
-    type = serializers.CharField(required=True)
-    company = CompanySerializer(required=False)
-    created_by = UserSerializer(required=False)
+    # id = serializers.IntegerField(read_only=True)
+    # name = serializers.CharField(required=True)
+    # link = serializers.CharField(required=True)
+    # location = serializers.CharField(required=True)
+    # type = serializers.CharField(required=True)
+    # company = serializers.IntegerField(required=False)
+    # created_by = UserSerializer(required=False)
 
     class Meta:
         model = Position
