@@ -1,6 +1,8 @@
 Our platform allows you to get rid of tons of excel pages. Job Application Tracker will organize all your applications and schedule all related events. 
 
 
+<h1><Team members:/h1>
+
 <table style="width:100%">
   <tr>
     <th>Firstname</th>
