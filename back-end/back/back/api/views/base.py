@@ -55,13 +55,6 @@ class CompanyView(APIView):
         serializer = CompanySerializer(company)
         return Response(serializer.data)
 
-    def post(self, request):
-        serializer = CompanySerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(created_by=self.request.user)
-            return Response(serializer.data)
-        return Response(serializer.errors)
-
     def put(self, request, pk):
         company = self.get_object(pk)
         serializer = CompanySerializer(instance=company, data=request.data)
@@ -74,4 +67,19 @@ class CompanyView(APIView):
         company = self.get_object(pk)
         company.delete()
         return Response({})
+
+
+class CompaniesView(APIView):
+    def get(self, request):
+        company = Company.objects.all()
+        serializer = CompanySerializer(company, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = CompanySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(created_by=self.request.user)
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
 
