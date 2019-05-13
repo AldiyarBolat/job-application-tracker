@@ -59,7 +59,15 @@ class UserApplication(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
     recruiter_contact = models.CharField(max_length=200)
-    applied_at = models.DateTimeField(auto_now=False, editable=True)
+    applied_at = models.DateTimeField(auto_now=True, editable=True)
+
+    objects = Manager()
+
+
+class Schedule(models.Model):
+    event_type = models.CharField(max_length=200)
+    date = models.DateTimeField(auto_now=False, editable=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     objects = Manager()
 

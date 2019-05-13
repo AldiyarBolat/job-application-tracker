@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Status, Company, Position, UserInfo, UserApplication
+from api.models import Status, Company, Position, UserInfo, UserApplication, Schedule
 from django.contrib.auth.models import User
 
 
@@ -66,13 +66,36 @@ class UserInfoSerializer(serializers.ModelSerializer):
 
 class UserApplicationSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
-    position = PositionSerializer()
-    status = StatusSerializer()
+    position = PositionSerializer(required=False)
+    status = StatusSerializer(required=False)
     created_by = UserSerializer(required=False)
 
     class Meta:
         model = UserApplication
         fields = '__all__'
 
+    def update(self, instance, validated_data):
+        instance.position = validated_data.get('position', instance.position)
+        instance.status = validated_data.get('status', instance.status)
+        instance.comment = validated_data.get('comment', instance.comment)
+        instance.recruiter_contact = validated_data.get('recruiter_contact', instance.recruiter_contact)
+        instance.save()
+        return instance
+
+
+class ScheduleSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    created_by = UserSerializer(required=False)
+
+    class Meta:
+        model = Schedule
+        fields = '__all__'
+
+    def update(self, instance, validated_data):
+        instance.event_type = validated_data.get('event_type', instance.event_type)
+        instance.date = validated_data.get('date', instance.date)
+        instance.created_by = validated_data.get('created_by', instance.created_by)
+        instance.save()
+        return instance
 
 
