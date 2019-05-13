@@ -30,7 +30,10 @@ Our platform allows you to get rid of tons of excel pages. Job Application Track
 </table>
 
 
-### Prerequisites
+## Prerequisites
 Node.js 10.5.0
+<tr>
 Python 3.6.3
+<tr>
 djangorestframework 3.9.1
+<tr>
