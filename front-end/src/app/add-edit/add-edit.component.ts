@@ -11,6 +11,11 @@ export class AddEditComponent implements OnInit {
 
   companyName: any = '';
   companies: ICompany[] = [];
+  selectedCompanyID: number;
+  positionName: any = '';
+  positionLink: any = '';
+  positionLocation: any = '';
+  positionType: any = '';
 
   public logged = false;
   public login: any = '';
@@ -38,13 +43,33 @@ export class AddEditComponent implements OnInit {
     if (this.companyName !== '') {
       this.provider.createCompany(this.companyName).then(res => {
         this.companyName = '';
+        this.companies.push(res);
         console.log('Company with name:' + res.name + 'created');
       });
     }
   }
 
   getCompanies() {
-
+    this.provider.getCompanies().then(res => {
+      this.companies = res;
+      console.log('get companies response has delivered');
+    });
+  }
+  createPosition() {
+    if (this.positionLink !== '' && this.positionLocation !== ''
+      && this.positionName !== '' && this.positionType !== '' &&
+      this.selectedCompanyID) {
+      this.provider.createPosition(this.positionName, this.positionLink, this.positionLocation,
+        this.positionType, this.selectedCompanyID).then(res => {
+          console.log('position has created');
+          this.positionType = '';
+          this.positionLocation = '';
+          this.positionName = '';
+          this.positionLink = '';
+          this.selectedCompanyID = null;
+        }
+      );
+    }
   }
 
   debugLogin() {

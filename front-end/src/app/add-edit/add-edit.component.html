@@ -1,19 +1,36 @@
 <p>
   add-edit works!
+  {{selectedCompanyID}}
 </p>
 <div>
-  Add company:
-  <input type="text" [(ngModel)]="companyName" />
-  <button (click)="createCompany()">Add Company</button>
-  Choose company:
   <div>
     <mat-form-field>
-      <mat-label>Favorite food</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let company of companies">
+      <input matInput type="text" [(ngModel)]="companyName" placeholder="Company Name"/>
+    </mat-form-field>
+    <button mat-raised-button (click)="createCompany()">Add Company</button>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Select a Company</mat-label>
+      <mat-select [(ngModel)]="selectedCompanyID" placeholder = "Select a company">
+        <mat-option *ngFor="let company of companies" [value]="company.id">
           {{company.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="positionName" placeholder="Position Name"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="positionLink" placeholder="Link to Position"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="positionLocation" placeholder="Location"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="positionType" placeholder="Type of Position"/>
+    </mat-form-field>
+    <button mat-raised-button (click)="createPosition()">Add Position</button>
   </div>
+
 </div>
