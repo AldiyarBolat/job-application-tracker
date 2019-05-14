@@ -1,0 +1,47 @@
+<p>
+  auth works!
+</p>
+<ng-container *ngIf="logged">
+  You are already logged in please log out
+
+  {{token}}
+</ng-container>
+
+<ng-container *ngIf="!logged">
+  {{username}}
+  {{password}}
+<div  align="center">
+<div style="width:30%">
+<!-- Default form login -->
+<div class="text-center border border-light p-5">
+
+  <p class="h4 mb-4">Sign in</p>
+
+  <!-- Email -->
+  <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Login" [(ngModel)]="username">
+
+  <!-- Password -->
+  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" [(ngModel)]="password">
+
+  <div class="d-flex justify-content-around">
+    <div>
+      <!-- Forgot password -->
+      <a href="">Forgot password?</a>
+    </div>
+  </div>
+
+  <!-- Sign in button -->
+  <button class="btn btn-info btn-block my-4" (click)="login()">Sign in</button>
+
+  <!-- Register -->
+  <p>Not a member?
+    <a href="">Register</a>
+  </p>
+
+
+</div>
+</div>
+</div>
+</ng-container>
+
+<!-- Default form login -->

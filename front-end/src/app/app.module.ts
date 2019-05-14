@@ -10,11 +10,23 @@ import { AddEditComponent } from './add-edit/add-edit.component';
 import {MainService} from './services/main.service';
 import {MatButtonModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AuthComponent } from './auth/auth.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {RouterModule, Routes} from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: 'login', component: AuthComponent },
+  { path: 'add-edit',      component: AddEditComponent },
+  { path: '',
+    redirectTo: '/add-edit',
+    pathMatch: 'full'
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,
-    AddEditComponent
+    AddEditComponent,
+    AuthComponent
   ],
   imports: [
     FormsModule,
@@ -23,7 +35,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatSelectModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MDBBootstrapModule.forRoot(),
+    RouterModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [
     ProviderService,

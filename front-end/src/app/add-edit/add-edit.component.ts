@@ -24,7 +24,6 @@ export class AddEditComponent implements OnInit {
   constructor(private provider: ProviderService) { }
 
   ngOnInit() {
-    localStorage.setItem('token', '3a34ee79c0d3507a17c71b51650f8d64f2720979');
     const token = localStorage.getItem('token');
     console.log('Token:' + token);
     if (token) {
