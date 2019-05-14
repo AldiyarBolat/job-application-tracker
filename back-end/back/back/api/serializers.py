@@ -49,7 +49,22 @@ class PositionSerializer(serializers.ModelSerializer):
     # link = serializers.CharField(required=True)
     # location = serializers.CharField(required=True)
     # type = serializers.CharField(required=True)
-    #company = CompanySerializer(required=True)
+    # company = CompanySerializer(required=True)
+    #created_by = UserSerializer(required=False)
+
+    class Meta:
+        model = Position
+        fields = '__all__'
+        read_only_fields = ('id', 'created_by')
+
+
+class PositionSerializer2(serializers.ModelSerializer):
+    # id = serializers.IntegerField(read_only=True)
+    # name = serializers.CharField(required=True)
+    # link = serializers.CharField(required=True)
+    # location = serializers.CharField(required=True)
+    # type = serializers.CharField(required=True)
+    company = CompanySerializer(required=True)
     #created_by = UserSerializer(required=False)
 
     class Meta:
