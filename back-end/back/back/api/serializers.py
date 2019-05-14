@@ -7,15 +7,15 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = '__all__'#('id', 'username', 'first_name', 'last_name', 'email', 'password',)
+        fields = ('id', 'username', 'first_name', 'last_name', 'email',)
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
 
 
 class StatusSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(required=True)
+    id = serializers.IntegerField(read_only=True, required=False)
+    name = serializers.CharField()
 
     def create(self, validated_data):
         status = Status(**validated_data)
@@ -29,8 +29,8 @@ class StatusSerializer(serializers.Serializer):
 
 
 class CompanySerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(required=True)
+    id = serializers.IntegerField(read_only=True, required=False)
+    name = serializers.CharField(required=False)
 
     def create(self, validated_data):
         company = Company(**validated_data)
@@ -49,12 +49,13 @@ class PositionSerializer(serializers.ModelSerializer):
     # link = serializers.CharField(required=True)
     # location = serializers.CharField(required=True)
     # type = serializers.CharField(required=True)
-    # company = serializers.IntegerField(required=False)
-    # created_by = UserSerializer(required=False)
+    #company = CompanySerializer(required=True)
+    #created_by = UserSerializer(required=False)
 
     class Meta:
         model = Position
         fields = '__all__'
+        read_only_fields = ('id', 'created_by')
 
 
 class UserInfoSerializer(serializers.ModelSerializer):
@@ -68,7 +69,7 @@ class UserApplicationSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     position = PositionSerializer(required=False)
     status = StatusSerializer(required=False)
-    created_by = UserSerializer(required=False)
+    created_by = UserSerializer(required=False, read_only=True)
 
     class Meta:
         model = UserApplication
