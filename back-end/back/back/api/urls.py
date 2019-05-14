@@ -5,7 +5,7 @@ urlpatterns = [
     path('status/', base.status),  # CREATE
     path('company/<int:pk>/', base.CompanyView.as_view()),  # UPDATE, GET, DELETE
     path('companies/', base.CompaniesView.as_view()),  # CREATE
-    path('position/', base.position),  # CREATE   TODO send only foreign key
+    path('position/', base.position),  # CREATE, # GET LIST OF ALL
 
     path('user-application/', generic_cbv.UserApplicationAPIView.as_view()),  # CREATE
     path('user-application/<int:pk>/', generic_cbv.UserApplicationAPIView.as_view()), # UPDATE,  GET list related to user, DELETE

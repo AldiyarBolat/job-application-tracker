@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
 from api.models import User, Company, Status, Position
-from api.serializers import StatusSerializer, PositionSerializer, UserSerializer, CompanySerializer
+from api.serializers import StatusSerializer, PositionSerializer, UserSerializer, CompanySerializer, PositionSerializer2
 
 
 @api_view(['POST'])
@@ -23,16 +23,6 @@ def status(request):
         return Response(serializer.errors)
 
 
-# @api_view(['DELETE'])
-# def del_status(request, pk):
-#    try:
-#         stat = Status.objects.get(id=pk)
-#    except  Status.DoesNotExist as e:
-#        return Response({'error': str(e)}, status=status.HTTP_404_NOT_FOUND)
-#    stat.delete()
-#    return Response({}, status=status.HTTP_204_NO_CONTENT)
-
-
 @api_view(['POST', 'GET'])
 def position(request):
     if request.method == 'POST':
@@ -43,7 +33,7 @@ def position(request):
         return Response(serializer.errors)
     if request.method == 'GET':
         positions = Position.objects.all()
-        serializer = PositionSerializer(positions, many=True)
+        serializer = PositionSerializer2(positions, many=True)
         return Response(serializer.data)
 
 
