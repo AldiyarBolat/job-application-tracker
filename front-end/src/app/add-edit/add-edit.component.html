@@ -3,34 +3,53 @@
   {{selectedCompanyID}}
 </p>
 <div>
-  <div>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="companyName" placeholder="Company Name"/>
-    </mat-form-field>
-    <button mat-raised-button (click)="createCompany()">Add Company</button>
-  </div>
-  <div>
-    <mat-form-field>
-      <mat-label>Select a Company</mat-label>
-      <mat-select [(ngModel)]="selectedCompanyID" placeholder = "Select a company">
-        <mat-option *ngFor="let company of companies" [value]="company.id">
-          {{company.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="positionName" placeholder="Position Name"/>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="positionLink" placeholder="Link to Position"/>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="positionLocation" placeholder="Location"/>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="positionType" placeholder="Type of Position"/>
-    </mat-form-field>
-    <button mat-raised-button (click)="createPosition()">Add Position</button>
-  </div>
+  <tbody>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="companyName" placeholder="Company Name"/>
+        </mat-form-field>
+      </td>
+      <td>
+        <button mat-raised-button (click)="createCompany()">Add Company</button>
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>Select a Company</mat-label>
+          <mat-select [(ngModel)]="selectedCompanyID" placeholder = "Select a company">
+            <mat-option *ngFor="let company of companies" [value]="company.id">
+              {{company.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="positionName" placeholder="Position Name"/>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="positionLink" placeholder="Link to Position"/>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="positionLocation" placeholder="Location"/>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="positionType" placeholder="Type of Position"/>
+        </mat-form-field>
+      </td>
+      <button mat-raised-button (click)="createPosition()">Add Position</button>
+    </tr>
+  </tbody>
 
 </div>

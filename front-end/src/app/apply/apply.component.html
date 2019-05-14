@@ -1,0 +1,46 @@
+<p>
+  apply works!
+</p>
+<ng-container *ngIf="!logged">
+  permission denied please log in
+</ng-container>
+<ng-container *ngIf="logged">
+  <div align="center">
+    <mat-form-field> <input matInput type="text" [(ngModel)]="comment" placeholder="Comment"/> </mat-form-field>
+    <mat-form-field> <input matInput type="text" [(ngModel)]="recruiterContact" placeholder="Recruiter contact"/> </mat-form-field>
+    <div>
+      <button mat-raised-button (click)="createUserApplication()">Apply</button>
+    </div>
+  </div>
+  <div>Position Company Name: <b> {{chosenPosition.company.name}} </b></div>
+  <div>Position Name: <b> {{chosenPosition.name}} </b> </div>
+  <div>Position Location: <b> {{chosenPosition.location}} </b> </div>
+  <div>Position Type: <b> {{chosenPosition.type}} </b> </div>
+
+  <div class="table-responsive text-nowrap">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Company</th>
+        <th scope="col">Link</th>
+        <th scope="col">Location</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Choose</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let position of positions">
+          <td>{{position.company.name}}</td>
+          <td><a [href]="position.link">{{position.link}}</a></td>
+          <td>{{position.location}}</td>
+          <td>{{position.name}}</td>
+          <td>{{position.type}}</td>
+          <td><button mat-raised-button (click)="choosePosition(position)">Choose Position</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</ng-container>

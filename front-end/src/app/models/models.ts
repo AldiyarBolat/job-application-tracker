@@ -12,7 +12,7 @@ export interface IPosition {
   name: string;
   link: string;
   location: string;
-  company: number;
+  company: ICompany;
   type: string;
 }
 

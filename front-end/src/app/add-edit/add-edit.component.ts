@@ -35,7 +35,6 @@ export class AddEditComponent implements OnInit {
         console.log('get companies response has delivered');
       });
     }
-
   }
 
   createCompany() {

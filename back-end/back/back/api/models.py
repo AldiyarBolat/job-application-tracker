@@ -55,7 +55,7 @@ class Manager(models.Manager):
 
 class UserApplication(models.Model):
     position = models.ForeignKey(Position, on_delete=models.CASCADE)
-    status = models.ForeignKey(Status, on_delete=models.CASCADE)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, default=6) # 6 is Applied
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
     recruiter_contact = models.CharField(max_length=200)

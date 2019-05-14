@@ -35,7 +35,10 @@ export class ProviderService extends MainService {
       company: positionCompanyID
     });
   }
-
+  getPositions(): Promise<IPosition[]> {
+    console.log('get positions request has sent');
+    return this.get('http://localhost:8000/api/position/', {});
+  }
   /* position requests end */
   auth(newLogin: any, newPassword: any): Promise<IAuthResponse> {
     return this.post('http://localhost:8000/api/login/', {

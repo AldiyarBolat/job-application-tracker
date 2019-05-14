@@ -13,20 +13,23 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthComponent } from './auth/auth.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {RouterModule, Routes} from '@angular/router';
+import { ApplyComponent } from './apply/apply.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: AuthComponent },
   { path: 'add-edit',      component: AddEditComponent },
+  { path: 'apply', component: ApplyComponent},
   { path: '',
     redirectTo: '/add-edit',
     pathMatch: 'full'
   }
-]
+];
 @NgModule({
   declarations: [
     AppComponent,
     AddEditComponent,
-    AuthComponent
+    AuthComponent,
+    ApplyComponent
   ],
   imports: [
     FormsModule,
