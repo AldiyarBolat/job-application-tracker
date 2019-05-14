@@ -67,7 +67,16 @@ class UserInfoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class UserApplicationSerializer(serializers.ModelSerializer):
+class UserApplicationSerializerWrite(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    created_by = UserSerializer(required=False, read_only=True)
+
+    class Meta:
+        model = UserApplication
+        fields = '__all__'
+
+
+class UserApplicationSerializerRead(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     position = PositionSerializer(required=False)
     status = StatusSerializer(required=False)
@@ -84,7 +93,6 @@ class UserApplicationSerializer(serializers.ModelSerializer):
         instance.recruiter_contact = validated_data.get('recruiter_contact', instance.recruiter_contact)
         instance.save()
         return instance
-
 
 class ScheduleSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)

@@ -9,8 +9,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
-from api.models import User, Company, Status, Position
-from api.serializers import StatusSerializer, PositionSerializer, UserSerializer, CompanySerializer, PositionSerializer2
+from api.models import User, Company, Status, Position, UserApplication
+from api.serializers import StatusSerializer, PositionSerializer, UserSerializer, CompanySerializer, PositionSerializer2, UserApplicationSerializerWrite, UserApplicationSerializerRead
 
 
 @api_view(['POST'])
@@ -71,6 +71,21 @@ class CompaniesView(APIView):
 
     def post(self, request):
         serializer = CompanySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(created_by=self.request.user)
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+
+class UserApplicationView(APIView):
+
+    def get(self, request):
+        applications = UserApplication.objects.all()
+        serializer = UserApplicationSerializerRead(applications, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = UserApplicationSerializerWrite(data=request.data)
         if serializer.is_valid():
             serializer.save(created_by=self.request.user)
             return Response(serializer.data)

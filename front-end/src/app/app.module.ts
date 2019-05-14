@@ -14,11 +14,13 @@ import { AuthComponent } from './auth/auth.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {RouterModule, Routes} from '@angular/router';
 import { ApplyComponent } from './apply/apply.component';
+import { ApplicationsComponent } from './applications/applications.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: AuthComponent },
   { path: 'add-edit',      component: AddEditComponent },
   { path: 'apply', component: ApplyComponent},
+  { path: 'applications', component: ApplicationsComponent},
   { path: '',
     redirectTo: '/add-edit',
     pathMatch: 'full'
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     AppComponent,
     AddEditComponent,
     AuthComponent,
-    ApplyComponent
+    ApplyComponent,
+    ApplicationsComponent
   ],
   imports: [
     FormsModule,
