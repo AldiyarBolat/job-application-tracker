@@ -54,11 +54,11 @@ class Manager(models.Manager):
 
 
 class UserApplication(models.Model):
-    position = models.ForeignKey(Position, on_delete=models.CASCADE)
+    position = models.ForeignKey(Position, on_delete=models.CASCADE, default=1)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default=6) # 6 is Applied
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    comment = models.CharField(max_length=200)
-    recruiter_contact = models.CharField(max_length=200)
+    comment = models.CharField(max_length=200, default='')
+    recruiter_contact = models.CharField(max_length=200, default='')
     applied_at = models.DateTimeField(auto_now=True, editable=True)
 
     objects = Manager()

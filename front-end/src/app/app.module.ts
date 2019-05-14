@@ -15,6 +15,7 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {RouterModule, Routes} from '@angular/router';
 import { ApplyComponent } from './apply/apply.component';
 import { ApplicationsComponent } from './applications/applications.component';
+import { ViewComponent } from './view/view.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: AuthComponent },
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     AddEditComponent,
     AuthComponent,
     ApplyComponent,
-    ApplicationsComponent
+    ApplicationsComponent,
+    ViewComponent
   ],
   imports: [
     FormsModule,

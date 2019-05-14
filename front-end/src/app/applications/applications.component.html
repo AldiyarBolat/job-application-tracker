@@ -1,3 +1,8 @@
 <p>
   applications works!
+  {{token}}
 </p>
+<div *ngFor="let s of statuses">
+  <app-view [status]="s"></app-view>
+</div>
+

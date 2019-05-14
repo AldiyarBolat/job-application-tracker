@@ -22,7 +22,7 @@ export class AddEditComponent implements OnInit {
   public password: any = '';
 
   constructor(private provider: ProviderService) { }
-
+w
   ngOnInit() {
     const token = localStorage.getItem('token');
     console.log('Token:' + token);

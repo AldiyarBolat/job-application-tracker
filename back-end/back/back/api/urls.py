@@ -7,7 +7,9 @@ urlpatterns = [
     path('companies/', base.CompaniesView.as_view()),  # CREATE
     path('position/', base.position),  # CREATE, # GET LIST OF ALL
 
-    path('user-application/', base.UserApplicationView.as_view()),  # GET
+    path('user-applications/', base.UserApplicationView.as_view()),  # GET
+    path('user-applications/filter/<int:pk>/', generic_cbv.UserApplicationAPIView.as_view()),
+    path('user-applications/<int:pk>/', base.UserApplicationUpdateDelete.as_view()),
 
     #path('user-application/<int:pk>/', generic_cbv.UserApplicationAPIView.as_view()), # UPDATE,  GET list related to user, DELETE
 

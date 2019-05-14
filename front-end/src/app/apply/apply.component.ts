@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProviderService} from '../services/provider.service';
-import {IPosition} from '../models/models';
+import {IPosition, IUserApplication} from '../models/models';
 
 @Component({
   selector: 'app-apply',
@@ -32,6 +32,14 @@ export class ApplyComponent implements OnInit {
   }
   choosePosition(position: IPosition) {
     this.chosenPosition = position;
+  }
+  createUserApplication() {
+    console.log(this.chosenPosition + ' ' + this.comment + ' ' + this.recruiterContact);
+    this.provider.createUserApplication(this.chosenPosition, this.comment, this.recruiterContact).then(res => {
+      console.log('createuserApplication response received');
+      this.comment = '';
+      this.recruiterContact = '';
+    });
   }
 
 }

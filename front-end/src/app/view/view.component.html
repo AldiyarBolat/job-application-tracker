@@ -1,0 +1,65 @@
+<p>
+  view works!
+</p>
+<div align="center">
+  <h1>{{status.name}}</h1>
+</div>
+<div class="table-responsive text-nowrap">
+  <ng-container *ngIf="choosenUserApplication">
+  <table class="table">
+    <tbody>
+    <tr>
+      <td>{{choosenUserApplication.position.company.name}}</td>
+      <td>{{choosenUserApplication.position.location}}</td>
+      <td>{{choosenUserApplication.position.name}}</td>
+      <td>{{choosenUserApplication.position.type}}</td>
+      <td>{{choosenUserApplication.comment}}</td>
+      <td>{{choosenUserApplication.recruiter_contact}}</td>
+      <td>
+        <mat-select [(ngModel)]="selectedUserApplicationStatus" placeholder = "Select a company">
+          <mat-option *ngFor="let status of statuses" [value]="status.id">
+            {{status.name}}
+          </mat-option>
+        </mat-select>
+      </td>
+      <td>
+        <button mat-raised-button (click)="changeUserApplication()">Change</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </ng-container>
+</div>
+
+<div class="table-responsive text-nowrap">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Company</th>
+      <th scope="col">Link</th>
+      <th scope="col">Location</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Comment</th>
+
+      <th scope="col">Recruiter Contact</th>
+
+      <th scope="col">Change Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let userApplication of userApplications">
+      <td>{{userApplication.position.company.name}}</td>
+      <td><a [href]="userApplication.position.link">{{userApplication.position.link}}</a></td>
+      <td>{{userApplication.position.location}}</td>
+      <td>{{userApplication.position.name}}</td>
+      <td>{{userApplication.position.type}}</td>
+      <td>{{userApplication.comment}}</td>
+      <td>{{userApplication.recruiter_contact}}</td>
+      <td><button mat-raised-button (click)="chooseApplication(userApplication)">Change Status</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
